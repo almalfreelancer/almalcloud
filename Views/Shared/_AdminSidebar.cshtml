@@ -1,0 +1,82 @@
+﻿<ul class="sidebar-menu" id="nav-accordion">
+    <p class="centered"><a href="@Url.Action("Dashboard","Admins")"><img src="~/Content/UserTemplate/images/Logo/ALMAL_Freelancer_Logo.jpg" class="img-circle" width="80"></a></p>
+    <h5 class="centered">Titus N</h5>
+    <h5 class="centered">ADMIN</h5>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-bar-chart-o"></i>
+            <span>Analytics</span>
+            <span class="label label-theme pull-right mail-info"><i class="fa fa-arrow-circle-down"></i></span>
+        </a>
+        <ul class="sub">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Admins</a></li>
+            <li><a href="#">Missions</a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="@Url.Action("Index","MissionTypes")">
+            <i class="fa fa-tasks"></i>
+            <span>Missions</span>
+        </a>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-user-circle-o"></i>
+            <span>Profiles</span>
+            <span class="label label-theme pull-right mail-info"><i class="fa fa-arrow-circle-down"></i></span>
+        </a>
+        <ul class="sub">
+            <li><a href="@Url.Action("Index","UserProfiles")">User Profiles</a></li>
+            <li><a href="@Url.Action("Index","AcademicBackgrounds")">User Academic Backgrounds</a></li>
+            <li><a href="@Url.Action("Index","UserPhotoes")">User Photoes</a></li>
+            <li><a href="@Url.Action("Index","Medias")">User Media</a></li>
+            <li><a href="@Url.Action("Index","Experiences")">User Experiences</a></li>
+            <li><a href="@Url.Action("Index","ProfessionalDocuments")">User Documents</a></li>
+            <li><a href="@Url.Action("Index","UserSkills")">User Skills</a></li>
+            <li><a href="@Url.Action("Index","SocialConnections")">User Connections</a></li>
+            <li><a href="@Url.Action("Index","Recommendations")">User Recommendations</a></li>
+            <li><a href="@Url.Action("Index","FeaturedProfiles")">User Featured Profiles</a></li>
+            <li><a href="@Url.Action("Index","UserMissionTypes")">User Mission Types</a></li>
+            <li><a href="@Url.Action("Index","Remunerations")">User Remunerations</a></li>
+            <li><a href="@Url.Action("Index","Alerts")">User Alerts</a></li>
+            <li><a href="@Url.Action("Index","AdminProfiles")">Admin Profiles</a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-bell"></i>
+            <span>Notifications</span>
+            <span class="label label-theme pull-right mail-info"><i class="fa fa-arrow-circle-down"></i></span>
+        </a>
+        <ul class="sub">
+            <li><a href="@Url.Action("Index","UserProfiles")"> User Profiles <span class="label label-theme pull-right mail-info">10</span></a></li>
+            <li><a href="@Url.Action("Index","AdminProfiles")"> Admin Profiles <span class="label label-theme pull-right mail-info">10</span></a></li>
+            <li><a href="@Url.Action("Index","Tickets")"> Tickets <span class="label label-theme pull-right mail-info">10</span></a></li>
+            <li><a href="@Url.Action("Index","SystemAnomaly")"> System Anomalies <span class="label label-theme pull-right mail-info">10</span></a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-cogs"></i>
+            <span>Configuration</span>
+            <span class="label label-theme pull-right mail-info"><i class="fa fa-arrow-circle-down"></i></span>
+        </a>
+        <ul class="sub">
+            <li><a href="@Url.Action("Index","RoleConfigs")">Admin Roles</a></li>
+            <li><a href="@Url.Action("Index","LocationRegistries")">Localization Configs</a></li>
+            <li><a href="@Url.Action("Index","AvailabilityConfigs")">Availability Configs</a></li>
+            <li><a href="@Url.Action("Index","MobilityConfigs")">Mobility Configs</a></li>
+            <li><a href="@Url.Action("Index","SkillConfigs")">Skill Configs</a></li>
+            <li><a href="@Url.Action("Index","Subscriptions")">Subscription Configs</a></li>
+        </ul>
+    </li>
+
+
+</ul>

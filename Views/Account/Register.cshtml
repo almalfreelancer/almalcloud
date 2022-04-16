@@ -1,0 +1,44 @@
+﻿@model ALMAL_Freelancer.Models.RegisterViewModel
+
+@{
+    Layout = "~/Views/Shared/pvExternal.cshtml";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <section id="feature">
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-md-4 col-sm-12"></div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="feature-thumb">
+                        <div class="section-title">
+                            <span><i class="fa fa-user"></i></span>
+                            <h2>Account Info</h2>
+                            <p>Create an account, start working.</p>
+                        </div>
+                        <div class="form-group">
+                            <form action="#" method="get">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
+                                <br />
+                                <input type="text" class="form-control" placeholder="Enter your full name" name="fullname" id="fullname" required="">
+                                <br />
+                                <input type="text" class="form-control" placeholder="Enter your username" name="username" id="username" required="">
+                                <br />
+                                <input type="password" class="form-control" placeholder="Enter your password" name="password" id="password" required="">
+                                <br />
+                                <input type="submit" class="btn btn-success" name="submit" id="form-submit" value="Submit">
+                            </form>
+
+                            <br />
+                            <a href="@Url.Action("Login","Account")" class="btn">Sign in</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+}

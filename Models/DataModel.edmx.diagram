@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c066047f6af6494e95a803d4c8e5e179" Name="Diagram1">
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblAcademicBackground" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblAdminProfile" Width="1.5" PointX="10" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblAlert" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblAvailabilityConfig" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblExperience" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblFeaturedProfile" Width="1.5" PointX="5.25" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblLocationRegistry" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblMedia" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblMissionType" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblMobilityConfig" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblProfessionalDocument" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblRecommendation" Width="1.5" PointX="5.25" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblRemuneration" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblRoleConfig" Width="1.5" PointX="7.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblSkillConfig" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblSocialConnection" Width="1.5" PointX="5.25" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblSubscription" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblUserMissionType" Width="1.5" PointX="8.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblUserPhoto" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblUserProfile" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblUserSkill" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblAcademicBackground_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblAdminProfile_tblRoleConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblAlert_tblMissionType" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblAlert_tblMobilityConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblAlert_tblSkillConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblAlert_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserProfile_tblAvailabilityConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblExperience_tblSkillConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblExperience_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblFeaturedProfile_tblMedia" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblFeaturedProfile_tblMissionType" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblFeaturedProfile_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserProfile_tblLocationRegistry" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblMedia_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblMissionType_tblMobilityConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserMissionType_tblMissionType" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserProfile_tblMobilityConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblProfessionalDocument_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblRecommendation_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblRemuneration_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserSkill_tblSkillConfig" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblSocialConnection_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblSocialConnection_tblUserProfile1" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserProfile_tblSubscription" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserMissionType_tblUserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserProfile_tblUserPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblUserSkill_tblUserProfile" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblSystemAnomaly" Width="1.5" PointX="15.25" PointY="11.5" />
+        <EntityTypeShape EntityType="ALMAL_FreelancerDBModel.tblTicket" Width="1.5" PointX="12.25" PointY="12.5" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblAdminProfile" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblTicket_tblAdminProfile" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblUserProfile" />
+        <AssociationConnector Association="ALMAL_FreelancerDBModel.FK_tblTicket_tblUserProfile" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

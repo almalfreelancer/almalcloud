@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/pvLanding.cshtml";
+}
+
+<!-- HOME -->
+<section id="home">
+    <div class="row">
+
+        <div class="owl-carousel owl-theme home-slider">
+            <div class="item item-third">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-6 col-sm-12">
+                            <h1>Freelancing platform</h1>
+                            <h3>
+                                ALMAL for Freelancers & Companies. <br />
+                                Sale of Physical and Intellectual Skills, Locally and International.
+                            </h3>
+                            <a href="@Url.Action("Login","Account")" class="section-btn btn btn-default smoothScroll">
+                                Get started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+@Html.Partial("About")
+
+
+<!-- FEATURE -->
+@Html.Partial("Feature")
+
+
+<!-- TESTIMONIAL -->
+@Html.Partial("Testimonial")

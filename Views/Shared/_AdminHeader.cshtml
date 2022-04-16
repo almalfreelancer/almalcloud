@@ -1,0 +1,64 @@
+﻿<div class="sidebar-toggle-box">
+    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+</div>
+<!--logo start-->
+<a href="@Url.Action("Dashboard","Admins")" class="logo"><b>ALMAL Cloud LLC</b></a>
+<!--logo end-->
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a href="@Url.Action("Index","Logs")">
+                
+                <i class="fa fa-tasks"></i>
+                @if (Session["LogCount"] != null)
+                {
+                    <span class="badge bg-theme">@Session["LogCount"].ToString()</span>
+                }
+                else
+                {
+                    <i class="fa fa-search"></i>
+                }
+            </a>
+        </li>
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li id="header_inbox_bar" class="dropdown">
+            <a href="@Url.Action("Index","Feedbacks")">
+                <i class="fa fa-envelope-o"></i>
+                @if (Session["FeedbackCount"] != null)
+                {
+                    <span class="badge bg-theme">@Session["FeedbackCount"].ToString()</span>
+                }
+                else
+                {
+                    <i class="fa fa-search"></i>
+                }
+
+            </a>
+        </li>
+        <!-- inbox dropdown end -->
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a href="@Url.Action("Index","Notifications")">
+                <i class="fa fa-bell-o"></i>
+                @if (Session["NotificationCount"] != null)
+                {
+                    <span class="badge bg-warning">@Session["NotificationCount"].ToString()</span>
+                }
+                else
+                {
+                    <i class="fa fa-search"></i>
+                }
+            </a>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-menu">
+    <ul class="nav pull-right top-menu">
+        <li><a class="logout" href="@Url.Action("Login","Account")">Logout</a></li>
+    </ul>
+</div>

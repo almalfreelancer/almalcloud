@@ -1,0 +1,41 @@
+﻿@using ALMAL_Freelancer.Models
+@model LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/pvExternal.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <section id="feature">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-12"></div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="feature-thumb">
+                        <div class="section-title">
+                            <span><i class="fa fa-lock"></i></span>
+                            <h2>Sign in</h2>
+                        </div>
+                        <div class="form-group">
+                            <form action="#" method="get">
+                                <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
+                                <br />
+                                <input type="password" class="form-control" placeholder="Enter your password" name="password" id="password" required="">
+                                <br />
+                                <input type="submit" class="btn btn-success" name="submit" id="form-submit" value="Submit">
+                            </form>
+
+                            <br />
+                            <a href="@Url.Action("ForgotPassword","Account")" class="btn">Forgot password?</a>
+
+                            <a href="@Url.Action("Register","Account")" class="btn">Create new account</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

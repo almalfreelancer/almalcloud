@@ -1,0 +1,1981 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ALMAL_FreelancerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblAcademicBackground">
+          <Key>
+            <PropertyRef Name="AcademicBackgroundID" />
+          </Key>
+          <Property Name="AcademicBackgroundID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="School" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="StopDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsGraduated" Type="bit" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblAdminProfile">
+          <Key>
+            <PropertyRef Name="AdminProfileID" />
+          </Key>
+          <Property Name="AdminProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleConfigID" Type="int" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsOnline" Type="bit" />
+          <Property Name="IsBlocked" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblAlert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="AlertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillConfigID" Type="int" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="MobilityConfigID" Type="int" />
+          <Property Name="MissionTypeID" Type="int" />
+          <Property Name="IsRead" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblAvailabilityConfig">
+          <Key>
+            <PropertyRef Name="AvailabilityConfigID" />
+          </Key>
+          <Property Name="AvailabilityConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartTime" Type="date" />
+          <Property Name="StopTime" Type="date" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="SkillConfigID" Type="int" />
+          <Property Name="YearCount" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="RegDate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblFeaturedProfile">
+          <Key>
+            <PropertyRef Name="FeaturedProfileID" />
+          </Key>
+          <Property Name="FeaturedProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="MissionTypeID" Type="int" />
+          <Property Name="MediaID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLocationRegistry">
+          <Key>
+            <PropertyRef Name="LocationRegistryID" />
+          </Key>
+          <Property Name="LocationRegistryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Town" Type="nvarchar" MaxLength="50" />
+          <Property Name="Residence" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblMedia">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="ContentUrl" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsBlocked" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblMissionType">
+          <Key>
+            <PropertyRef Name="MissionTypeID" />
+          </Key>
+          <Property Name="MissionTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MobilityConfigID" Type="int" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsCompleted" Type="bit" />
+          <Property Name="EstimatedStartTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="EstimatedStopTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="StopDuration" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblMobilityConfig">
+          <Key>
+            <PropertyRef Name="MobilityConfigID" />
+          </Key>
+          <Property Name="MobilityConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblProfessionalDocument">
+          <Key>
+            <PropertyRef Name="ProfessionalDocumentID" />
+          </Key>
+          <Property Name="ProfessionalDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="FrontNicUrl" Type="nvarchar(max)" />
+          <Property Name="BackNicUrl" Type="nvarchar(max)" />
+          <Property Name="FrontDriverLicenseUrl" Type="nvarchar(max)" />
+          <Property Name="BackDriverLicenseUrl" Type="nvarchar(max)" />
+          <Property Name="PassportUrl" Type="nvarchar(max)" />
+          <Property Name="RegDate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblRecommendation">
+          <Key>
+            <PropertyRef Name="RecommendationID" />
+          </Key>
+          <Property Name="RecommendationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="RecommendedBy" Type="nvarchar(max)" />
+          <Property Name="RecommenderTitle" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblRemuneration">
+          <Key>
+            <PropertyRef Name="RemunerationID" />
+          </Key>
+          <Property Name="RemunerationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="RegDate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblRoleConfig">
+          <Key>
+            <PropertyRef Name="RoleConfigID" />
+          </Key>
+          <Property Name="RoleConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="CanCreate" Type="bit" />
+          <Property Name="CanRead" Type="bit" />
+          <Property Name="CanUpdate" Type="bit" />
+          <Property Name="CanDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSkillConfig">
+          <Key>
+            <PropertyRef Name="SkillConfigID" />
+          </Key>
+          <Property Name="SkillConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblSocialConnection">
+          <Key>
+            <PropertyRef Name="SocialConnectionID" />
+          </Key>
+          <Property Name="SocialConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="CoonectionUserID" Type="int" />
+          <Property Name="IsCollab" Type="int" />
+          <Property Name="IsFollow" Type="bit" />
+          <Property Name="IsFollowing" Type="bit" />
+          <Property Name="IsRecommend" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSubscription">
+          <Key>
+            <PropertyRef Name="SubscriptionID" />
+          </Key>
+          <Property Name="SubscriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSystemAnomaly">
+          <Key>
+            <PropertyRef Name="SystemAnomalyID" />
+          </Key>
+          <Property Name="SystemAnomalyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Analysis" Type="nvarchar(max)" />
+          <Property Name="Timeline" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SectionUrl" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="IsRead" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblTicket">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="RepliedBy" Type="int" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ContentUrl" Type="nvarchar(max)" />
+          <Property Name="IsRead" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblUserMissionType">
+          <Key>
+            <PropertyRef Name="UserMissionTypeID" />
+          </Key>
+          <Property Name="UserMissionTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MissionTypeID" Type="int" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="StopDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCompleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblUserPhoto">
+          <Key>
+            <PropertyRef Name="UserPhotoID" />
+          </Key>
+          <Property Name="UserPhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="IsProfilePhoto" Type="bit" />
+          <Property Name="IsCoverPhoto" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblUserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="EmailVerificationCode" Type="int" />
+          <Property Name="IsEmailVerificationCode" Type="bit" />
+          <Property Name="Biography" Type="nvarchar(max)" />
+          <Property Name="UserPhotoID" Type="int" />
+          <Property Name="AccountUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobilityConfigID" Type="int" />
+          <Property Name="LocationRegistryID" Type="int" />
+          <Property Name="AvailabilityConfigID" Type="int" />
+          <Property Name="IsVerified" Type="bit" />
+          <Property Name="SubscriptionID" Type="int" />
+          <Property Name="SubscriptionExpiryDate" Type="date" />
+          <Property Name="IsSubscriptionExpired" Type="bit" />
+          <Property Name="IsOnline" Type="bit" />
+          <Property Name="IsBlocked" Type="bit" />
+          <Property Name="RegDate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblUserSkill">
+          <Key>
+            <PropertyRef Name="UserSkillID" />
+          </Key>
+          <Property Name="UserSkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserProfileID" Type="int" />
+          <Property Name="SkillConfigID" Type="int" />
+          <Property Name="Progress" Type="int" />
+        </EntityType>
+        <Association Name="FK_tblAcademicBackground_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblAcademicBackground" Type="Self.tblAcademicBackground" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblAcademicBackground">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAdminProfile_tblRoleConfig">
+          <End Role="tblRoleConfig" Type="Self.tblRoleConfig" Multiplicity="0..1" />
+          <End Role="tblAdminProfile" Type="Self.tblAdminProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoleConfig">
+              <PropertyRef Name="RoleConfigID" />
+            </Principal>
+            <Dependent Role="tblAdminProfile">
+              <PropertyRef Name="RoleConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblMissionType">
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="MissionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblMobilityConfig">
+          <End Role="tblMobilityConfig" Type="Self.tblMobilityConfig" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMobilityConfig">
+              <PropertyRef Name="MobilityConfigID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="MobilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblSkillConfig">
+          <End Role="tblSkillConfig" Type="Self.tblSkillConfig" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkillConfig">
+              <PropertyRef Name="SkillConfigID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="SkillConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblExperience_tblSkillConfig">
+          <End Role="tblSkillConfig" Type="Self.tblSkillConfig" Multiplicity="0..1" />
+          <End Role="tblExperience" Type="Self.tblExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkillConfig">
+              <PropertyRef Name="SkillConfigID" />
+            </Principal>
+            <Dependent Role="tblExperience">
+              <PropertyRef Name="SkillConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblExperience_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblExperience" Type="Self.tblExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblExperience">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeaturedProfile_tblMedia">
+          <End Role="tblMedia" Type="Self.tblMedia" Multiplicity="0..1" />
+          <End Role="tblFeaturedProfile" Type="Self.tblFeaturedProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMedia">
+              <PropertyRef Name="MediaID" />
+            </Principal>
+            <Dependent Role="tblFeaturedProfile">
+              <PropertyRef Name="MediaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeaturedProfile_tblMissionType">
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="0..1" />
+          <End Role="tblFeaturedProfile" Type="Self.tblFeaturedProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Principal>
+            <Dependent Role="tblFeaturedProfile">
+              <PropertyRef Name="MissionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeaturedProfile_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblFeaturedProfile" Type="Self.tblFeaturedProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblFeaturedProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMedia_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblMedia" Type="Self.tblMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblMedia">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMissionType_tblMobilityConfig">
+          <End Role="tblMobilityConfig" Type="Self.tblMobilityConfig" Multiplicity="0..1" />
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMobilityConfig">
+              <PropertyRef Name="MobilityConfigID" />
+            </Principal>
+            <Dependent Role="tblMissionType">
+              <PropertyRef Name="MobilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProfessionalDocument_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblProfessionalDocument" Type="Self.tblProfessionalDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblProfessionalDocument">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRecommendation_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblRecommendation" Type="Self.tblRecommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblRecommendation">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRemuneration_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblRemuneration" Type="Self.tblRemuneration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblRemuneration">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSocialConnection_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblSocialConnection" Type="Self.tblSocialConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblSocialConnection">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSocialConnection_tblUserProfile1">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblSocialConnection" Type="Self.tblSocialConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblSocialConnection">
+              <PropertyRef Name="CoonectionUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSystemAnomaly_tblAdminProfile">
+          <End Role="tblAdminProfile" Type="Self.tblAdminProfile" Multiplicity="0..1" />
+          <End Role="tblSystemAnomaly" Type="Self.tblSystemAnomaly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminProfile">
+              <PropertyRef Name="AdminProfileID" />
+            </Principal>
+            <Dependent Role="tblSystemAnomaly">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSystemAnomaly_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblSystemAnomaly" Type="Self.tblSystemAnomaly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblSystemAnomaly">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTicket_tblAdminProfile">
+          <End Role="tblAdminProfile" Type="Self.tblAdminProfile" Multiplicity="0..1" />
+          <End Role="tblTicket" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminProfile">
+              <PropertyRef Name="AdminProfileID" />
+            </Principal>
+            <Dependent Role="tblTicket">
+              <PropertyRef Name="RepliedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTicket_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblTicket" Type="Self.tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblTicket">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserMissionType_tblMissionType">
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="0..1" />
+          <End Role="tblUserMissionType" Type="Self.tblUserMissionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Principal>
+            <Dependent Role="tblUserMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserMissionType_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblUserMissionType" Type="Self.tblUserMissionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblUserMissionType">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblAvailabilityConfig">
+          <End Role="tblAvailabilityConfig" Type="Self.tblAvailabilityConfig" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAvailabilityConfig">
+              <PropertyRef Name="AvailabilityConfigID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="AvailabilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblLocationRegistry">
+          <End Role="tblLocationRegistry" Type="Self.tblLocationRegistry" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLocationRegistry">
+              <PropertyRef Name="LocationRegistryID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="LocationRegistryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblMobilityConfig">
+          <End Role="tblMobilityConfig" Type="Self.tblMobilityConfig" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMobilityConfig">
+              <PropertyRef Name="MobilityConfigID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="MobilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblSubscription">
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubscription">
+              <PropertyRef Name="SubscriptionID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="SubscriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblUserPhoto">
+          <End Role="tblUserPhoto" Type="Self.tblUserPhoto" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserPhoto">
+              <PropertyRef Name="UserPhotoID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="UserPhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserSkill_tblSkillConfig">
+          <End Role="tblSkillConfig" Type="Self.tblSkillConfig" Multiplicity="0..1" />
+          <End Role="tblUserSkill" Type="Self.tblUserSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkillConfig">
+              <PropertyRef Name="SkillConfigID" />
+            </Principal>
+            <Dependent Role="tblUserSkill">
+              <PropertyRef Name="SkillConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserSkill_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblUserSkill" Type="Self.tblUserSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblUserSkill">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ALMAL_FreelancerDBModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAcademicBackground" EntityType="Self.tblAcademicBackground" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAdminProfile" EntityType="Self.tblAdminProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAlert" EntityType="Self.tblAlert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAvailabilityConfig" EntityType="Self.tblAvailabilityConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblExperience" EntityType="Self.tblExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFeaturedProfile" EntityType="Self.tblFeaturedProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLocationRegistry" EntityType="Self.tblLocationRegistry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMedia" EntityType="Self.tblMedia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMissionType" EntityType="Self.tblMissionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMobilityConfig" EntityType="Self.tblMobilityConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProfessionalDocument" EntityType="Self.tblProfessionalDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRecommendation" EntityType="Self.tblRecommendation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRemuneration" EntityType="Self.tblRemuneration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRoleConfig" EntityType="Self.tblRoleConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSkillConfig" EntityType="Self.tblSkillConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSocialConnection" EntityType="Self.tblSocialConnection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubscription" EntityType="Self.tblSubscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSystemAnomaly" EntityType="Self.tblSystemAnomaly" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTicket" EntityType="Self.tblTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserMissionType" EntityType="Self.tblUserMissionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserPhoto" EntityType="Self.tblUserPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserProfile" EntityType="Self.tblUserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserSkill" EntityType="Self.tblUserSkill" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblAcademicBackground_tblUserProfile" Association="Self.FK_tblAcademicBackground_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblAcademicBackground" EntitySet="tblAcademicBackground" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAdminProfile_tblRoleConfig" Association="Self.FK_tblAdminProfile_tblRoleConfig">
+            <End Role="tblRoleConfig" EntitySet="tblRoleConfig" />
+            <End Role="tblAdminProfile" EntitySet="tblAdminProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblMissionType" Association="Self.FK_tblAlert_tblMissionType">
+            <End Role="tblMissionType" EntitySet="tblMissionType" />
+            <End Role="tblAlert" EntitySet="tblAlert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblMobilityConfig" Association="Self.FK_tblAlert_tblMobilityConfig">
+            <End Role="tblMobilityConfig" EntitySet="tblMobilityConfig" />
+            <End Role="tblAlert" EntitySet="tblAlert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblSkillConfig" Association="Self.FK_tblAlert_tblSkillConfig">
+            <End Role="tblSkillConfig" EntitySet="tblSkillConfig" />
+            <End Role="tblAlert" EntitySet="tblAlert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblUserProfile" Association="Self.FK_tblAlert_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblAlert" EntitySet="tblAlert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblExperience_tblSkillConfig" Association="Self.FK_tblExperience_tblSkillConfig">
+            <End Role="tblSkillConfig" EntitySet="tblSkillConfig" />
+            <End Role="tblExperience" EntitySet="tblExperience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblExperience_tblUserProfile" Association="Self.FK_tblExperience_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblExperience" EntitySet="tblExperience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeaturedProfile_tblMedia" Association="Self.FK_tblFeaturedProfile_tblMedia">
+            <End Role="tblMedia" EntitySet="tblMedia" />
+            <End Role="tblFeaturedProfile" EntitySet="tblFeaturedProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeaturedProfile_tblMissionType" Association="Self.FK_tblFeaturedProfile_tblMissionType">
+            <End Role="tblMissionType" EntitySet="tblMissionType" />
+            <End Role="tblFeaturedProfile" EntitySet="tblFeaturedProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeaturedProfile_tblUserProfile" Association="Self.FK_tblFeaturedProfile_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblFeaturedProfile" EntitySet="tblFeaturedProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMedia_tblUserProfile" Association="Self.FK_tblMedia_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblMedia" EntitySet="tblMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMissionType_tblMobilityConfig" Association="Self.FK_tblMissionType_tblMobilityConfig">
+            <End Role="tblMobilityConfig" EntitySet="tblMobilityConfig" />
+            <End Role="tblMissionType" EntitySet="tblMissionType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProfessionalDocument_tblUserProfile" Association="Self.FK_tblProfessionalDocument_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblProfessionalDocument" EntitySet="tblProfessionalDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRecommendation_tblUserProfile" Association="Self.FK_tblRecommendation_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblRecommendation" EntitySet="tblRecommendation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRemuneration_tblUserProfile" Association="Self.FK_tblRemuneration_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblRemuneration" EntitySet="tblRemuneration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSocialConnection_tblUserProfile" Association="Self.FK_tblSocialConnection_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblSocialConnection" EntitySet="tblSocialConnection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSocialConnection_tblUserProfile1" Association="Self.FK_tblSocialConnection_tblUserProfile1">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblSocialConnection" EntitySet="tblSocialConnection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSystemAnomaly_tblAdminProfile" Association="Self.FK_tblSystemAnomaly_tblAdminProfile">
+            <End Role="tblAdminProfile" EntitySet="tblAdminProfile" />
+            <End Role="tblSystemAnomaly" EntitySet="tblSystemAnomaly" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSystemAnomaly_tblUserProfile" Association="Self.FK_tblSystemAnomaly_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblSystemAnomaly" EntitySet="tblSystemAnomaly" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTicket_tblAdminProfile" Association="Self.FK_tblTicket_tblAdminProfile">
+            <End Role="tblAdminProfile" EntitySet="tblAdminProfile" />
+            <End Role="tblTicket" EntitySet="tblTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTicket_tblUserProfile" Association="Self.FK_tblTicket_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblTicket" EntitySet="tblTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserMissionType_tblMissionType" Association="Self.FK_tblUserMissionType_tblMissionType">
+            <End Role="tblMissionType" EntitySet="tblMissionType" />
+            <End Role="tblUserMissionType" EntitySet="tblUserMissionType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserMissionType_tblUserProfile" Association="Self.FK_tblUserMissionType_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblUserMissionType" EntitySet="tblUserMissionType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblAvailabilityConfig" Association="Self.FK_tblUserProfile_tblAvailabilityConfig">
+            <End Role="tblAvailabilityConfig" EntitySet="tblAvailabilityConfig" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblLocationRegistry" Association="Self.FK_tblUserProfile_tblLocationRegistry">
+            <End Role="tblLocationRegistry" EntitySet="tblLocationRegistry" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblMobilityConfig" Association="Self.FK_tblUserProfile_tblMobilityConfig">
+            <End Role="tblMobilityConfig" EntitySet="tblMobilityConfig" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblSubscription" Association="Self.FK_tblUserProfile_tblSubscription">
+            <End Role="tblSubscription" EntitySet="tblSubscription" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblUserPhoto" Association="Self.FK_tblUserProfile_tblUserPhoto">
+            <End Role="tblUserPhoto" EntitySet="tblUserPhoto" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserSkill_tblSkillConfig" Association="Self.FK_tblUserSkill_tblSkillConfig">
+            <End Role="tblSkillConfig" EntitySet="tblSkillConfig" />
+            <End Role="tblUserSkill" EntitySet="tblUserSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserSkill_tblUserProfile" Association="Self.FK_tblUserSkill_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfile" />
+            <End Role="tblUserSkill" EntitySet="tblUserSkill" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ALMAL_FreelancerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblAcademicBackground">
+          <Key>
+            <PropertyRef Name="AcademicBackgroundID" />
+          </Key>
+          <Property Name="AcademicBackgroundID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StopDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsGraduated" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblAcademicBackground_tblUserProfile" FromRole="tblAcademicBackground" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblAdminProfile">
+          <Key>
+            <PropertyRef Name="AdminProfileID" />
+          </Key>
+          <Property Name="AdminProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleConfigID" Type="Int32" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsOnline" Type="Boolean" />
+          <Property Name="IsBlocked" Type="Boolean" />
+          <NavigationProperty Name="tblRoleConfig" Relationship="Self.FK_tblAdminProfile_tblRoleConfig" FromRole="tblAdminProfile" ToRole="tblRoleConfig" />
+          <NavigationProperty Name="tblSystemAnomalies" Relationship="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblAdminProfile" FromRole="tblAdminProfile" ToRole="tblSystemAnomaly" />
+          <NavigationProperty Name="tblTickets" Relationship="ALMAL_FreelancerDBModel.FK_tblTicket_tblAdminProfile" FromRole="tblAdminProfile" ToRole="tblTicket" />
+        </EntityType>
+        <EntityType Name="tblAlert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="AlertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillConfigID" Type="Int32" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="MobilityConfigID" Type="Int32" />
+          <Property Name="MissionTypeID" Type="Int32" />
+          <Property Name="IsRead" Type="Boolean" />
+          <NavigationProperty Name="tblMissionType" Relationship="Self.FK_tblAlert_tblMissionType" FromRole="tblAlert" ToRole="tblMissionType" />
+          <NavigationProperty Name="tblMobilityConfig" Relationship="Self.FK_tblAlert_tblMobilityConfig" FromRole="tblAlert" ToRole="tblMobilityConfig" />
+          <NavigationProperty Name="tblSkillConfig" Relationship="Self.FK_tblAlert_tblSkillConfig" FromRole="tblAlert" ToRole="tblSkillConfig" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblAlert_tblUserProfile" FromRole="tblAlert" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblAvailabilityConfig">
+          <Key>
+            <PropertyRef Name="AvailabilityConfigID" />
+          </Key>
+          <Property Name="AvailabilityConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="DateTime" Precision="0" />
+          <Property Name="StopTime" Type="DateTime" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="tblUserProfiles" Relationship="Self.FK_tblUserProfile_tblAvailabilityConfig" FromRole="tblAvailabilityConfig" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="SkillConfigID" Type="Int32" />
+          <Property Name="YearCount" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblSkillConfig" Relationship="Self.FK_tblExperience_tblSkillConfig" FromRole="tblExperience" ToRole="tblSkillConfig" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblExperience_tblUserProfile" FromRole="tblExperience" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblFeaturedProfile">
+          <Key>
+            <PropertyRef Name="FeaturedProfileID" />
+          </Key>
+          <Property Name="FeaturedProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="MissionTypeID" Type="Int32" />
+          <Property Name="MediaID" Type="Int32" />
+          <NavigationProperty Name="tblMedia" Relationship="Self.FK_tblFeaturedProfile_tblMedia" FromRole="tblFeaturedProfile" ToRole="tblMedia" />
+          <NavigationProperty Name="tblMissionType" Relationship="Self.FK_tblFeaturedProfile_tblMissionType" FromRole="tblFeaturedProfile" ToRole="tblMissionType" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblFeaturedProfile_tblUserProfile" FromRole="tblFeaturedProfile" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblLocationRegistry">
+          <Key>
+            <PropertyRef Name="LocationRegistryID" />
+          </Key>
+          <Property Name="LocationRegistryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Residence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserProfiles" Relationship="Self.FK_tblUserProfile_tblLocationRegistry" FromRole="tblLocationRegistry" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblMedia">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="ContentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsBlocked" Type="Boolean" />
+          <NavigationProperty Name="tblFeaturedProfiles" Relationship="Self.FK_tblFeaturedProfile_tblMedia" FromRole="tblMedia" ToRole="tblFeaturedProfile" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblMedia_tblUserProfile" FromRole="tblMedia" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblMissionType">
+          <Key>
+            <PropertyRef Name="MissionTypeID" />
+          </Key>
+          <Property Name="MissionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobilityConfigID" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsCompleted" Type="Boolean" />
+          <Property Name="EstimatedStartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EstimatedStopTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDuration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StopDuration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAlerts" Relationship="Self.FK_tblAlert_tblMissionType" FromRole="tblMissionType" ToRole="tblAlert" />
+          <NavigationProperty Name="tblFeaturedProfiles" Relationship="Self.FK_tblFeaturedProfile_tblMissionType" FromRole="tblMissionType" ToRole="tblFeaturedProfile" />
+          <NavigationProperty Name="tblMobilityConfig" Relationship="Self.FK_tblMissionType_tblMobilityConfig" FromRole="tblMissionType" ToRole="tblMobilityConfig" />
+          <NavigationProperty Name="tblUserMissionTypes" Relationship="Self.FK_tblUserMissionType_tblMissionType" FromRole="tblMissionType" ToRole="tblUserMissionType" />
+        </EntityType>
+        <EntityType Name="tblMobilityConfig">
+          <Key>
+            <PropertyRef Name="MobilityConfigID" />
+          </Key>
+          <Property Name="MobilityConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAlerts" Relationship="Self.FK_tblAlert_tblMobilityConfig" FromRole="tblMobilityConfig" ToRole="tblAlert" />
+          <NavigationProperty Name="tblMissionTypes" Relationship="Self.FK_tblMissionType_tblMobilityConfig" FromRole="tblMobilityConfig" ToRole="tblMissionType" />
+          <NavigationProperty Name="tblUserProfiles" Relationship="Self.FK_tblUserProfile_tblMobilityConfig" FromRole="tblMobilityConfig" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblProfessionalDocument">
+          <Key>
+            <PropertyRef Name="ProfessionalDocumentID" />
+          </Key>
+          <Property Name="ProfessionalDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="FrontNicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BackNicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FrontDriverLicenseUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BackDriverLicenseUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassportUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblProfessionalDocument_tblUserProfile" FromRole="tblProfessionalDocument" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblRecommendation">
+          <Key>
+            <PropertyRef Name="RecommendationID" />
+          </Key>
+          <Property Name="RecommendationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="RecommendedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecommenderTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblRecommendation_tblUserProfile" FromRole="tblRecommendation" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblRemuneration">
+          <Key>
+            <PropertyRef Name="RemunerationID" />
+          </Key>
+          <Property Name="RemunerationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="RegDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblRemuneration_tblUserProfile" FromRole="tblRemuneration" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblRoleConfig">
+          <Key>
+            <PropertyRef Name="RoleConfigID" />
+          </Key>
+          <Property Name="RoleConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CanCreate" Type="Boolean" />
+          <Property Name="CanRead" Type="Boolean" />
+          <Property Name="CanUpdate" Type="Boolean" />
+          <Property Name="CanDelete" Type="Boolean" />
+          <NavigationProperty Name="tblAdminProfiles" Relationship="Self.FK_tblAdminProfile_tblRoleConfig" FromRole="tblRoleConfig" ToRole="tblAdminProfile" />
+        </EntityType>
+        <EntityType Name="tblSkillConfig">
+          <Key>
+            <PropertyRef Name="SkillConfigID" />
+          </Key>
+          <Property Name="SkillConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAlerts" Relationship="Self.FK_tblAlert_tblSkillConfig" FromRole="tblSkillConfig" ToRole="tblAlert" />
+          <NavigationProperty Name="tblExperiences" Relationship="Self.FK_tblExperience_tblSkillConfig" FromRole="tblSkillConfig" ToRole="tblExperience" />
+          <NavigationProperty Name="tblUserSkills" Relationship="Self.FK_tblUserSkill_tblSkillConfig" FromRole="tblSkillConfig" ToRole="tblUserSkill" />
+        </EntityType>
+        <EntityType Name="tblSocialConnection">
+          <Key>
+            <PropertyRef Name="SocialConnectionID" />
+          </Key>
+          <Property Name="SocialConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="CoonectionUserID" Type="Int32" />
+          <Property Name="IsCollab" Type="Int32" />
+          <Property Name="IsFollow" Type="Boolean" />
+          <Property Name="IsFollowing" Type="Boolean" />
+          <Property Name="IsRecommend" Type="Boolean" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblSocialConnection_tblUserProfile" FromRole="tblSocialConnection" ToRole="tblUserProfile" />
+          <NavigationProperty Name="tblUserProfile1" Relationship="Self.FK_tblSocialConnection_tblUserProfile1" FromRole="tblSocialConnection" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblSubscription">
+          <Key>
+            <PropertyRef Name="SubscriptionID" />
+          </Key>
+          <Property Name="SubscriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserProfiles" Relationship="Self.FK_tblUserProfile_tblSubscription" FromRole="tblSubscription" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblUserMissionType">
+          <Key>
+            <PropertyRef Name="UserMissionTypeID" />
+          </Key>
+          <Property Name="UserMissionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MissionTypeID" Type="Int32" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StopDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCompleted" Type="Boolean" />
+          <NavigationProperty Name="tblMissionType" Relationship="Self.FK_tblUserMissionType_tblMissionType" FromRole="tblUserMissionType" ToRole="tblMissionType" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblUserMissionType_tblUserProfile" FromRole="tblUserMissionType" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblUserPhoto">
+          <Key>
+            <PropertyRef Name="UserPhotoID" />
+          </Key>
+          <Property Name="UserPhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsProfilePhoto" Type="Boolean" />
+          <Property Name="IsCoverPhoto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tblUserProfiles" Relationship="Self.FK_tblUserProfile_tblUserPhoto" FromRole="tblUserPhoto" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblUserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailVerificationCode" Type="Int32" />
+          <Property Name="IsEmailVerificationCode" Type="Boolean" />
+          <Property Name="Biography" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhotoID" Type="Int32" />
+          <Property Name="AccountUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobilityConfigID" Type="Int32" />
+          <Property Name="LocationRegistryID" Type="Int32" />
+          <Property Name="AvailabilityConfigID" Type="Int32" />
+          <Property Name="IsVerified" Type="Boolean" />
+          <Property Name="SubscriptionID" Type="Int32" />
+          <Property Name="SubscriptionExpiryDate" Type="DateTime" Precision="0" />
+          <Property Name="IsSubscriptionExpired" Type="Boolean" />
+          <Property Name="IsOnline" Type="Boolean" />
+          <Property Name="IsBlocked" Type="Boolean" />
+          <Property Name="RegDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAcademicBackgrounds" Relationship="Self.FK_tblAcademicBackground_tblUserProfile" FromRole="tblUserProfile" ToRole="tblAcademicBackground" />
+          <NavigationProperty Name="tblAlerts" Relationship="Self.FK_tblAlert_tblUserProfile" FromRole="tblUserProfile" ToRole="tblAlert" />
+          <NavigationProperty Name="tblAvailabilityConfig" Relationship="Self.FK_tblUserProfile_tblAvailabilityConfig" FromRole="tblUserProfile" ToRole="tblAvailabilityConfig" />
+          <NavigationProperty Name="tblExperiences" Relationship="Self.FK_tblExperience_tblUserProfile" FromRole="tblUserProfile" ToRole="tblExperience" />
+          <NavigationProperty Name="tblFeaturedProfiles" Relationship="Self.FK_tblFeaturedProfile_tblUserProfile" FromRole="tblUserProfile" ToRole="tblFeaturedProfile" />
+          <NavigationProperty Name="tblLocationRegistry" Relationship="Self.FK_tblUserProfile_tblLocationRegistry" FromRole="tblUserProfile" ToRole="tblLocationRegistry" />
+          <NavigationProperty Name="tblMedias" Relationship="Self.FK_tblMedia_tblUserProfile" FromRole="tblUserProfile" ToRole="tblMedia" />
+          <NavigationProperty Name="tblMobilityConfig" Relationship="Self.FK_tblUserProfile_tblMobilityConfig" FromRole="tblUserProfile" ToRole="tblMobilityConfig" />
+          <NavigationProperty Name="tblProfessionalDocuments" Relationship="Self.FK_tblProfessionalDocument_tblUserProfile" FromRole="tblUserProfile" ToRole="tblProfessionalDocument" />
+          <NavigationProperty Name="tblRecommendations" Relationship="Self.FK_tblRecommendation_tblUserProfile" FromRole="tblUserProfile" ToRole="tblRecommendation" />
+          <NavigationProperty Name="tblRemunerations" Relationship="Self.FK_tblRemuneration_tblUserProfile" FromRole="tblUserProfile" ToRole="tblRemuneration" />
+          <NavigationProperty Name="tblSocialConnections" Relationship="Self.FK_tblSocialConnection_tblUserProfile" FromRole="tblUserProfile" ToRole="tblSocialConnection" />
+          <NavigationProperty Name="tblSocialConnections1" Relationship="Self.FK_tblSocialConnection_tblUserProfile1" FromRole="tblUserProfile" ToRole="tblSocialConnection" />
+          <NavigationProperty Name="tblSubscription" Relationship="Self.FK_tblUserProfile_tblSubscription" FromRole="tblUserProfile" ToRole="tblSubscription" />
+          <NavigationProperty Name="tblUserMissionTypes" Relationship="Self.FK_tblUserMissionType_tblUserProfile" FromRole="tblUserProfile" ToRole="tblUserMissionType" />
+          <NavigationProperty Name="tblUserPhoto" Relationship="Self.FK_tblUserProfile_tblUserPhoto" FromRole="tblUserProfile" ToRole="tblUserPhoto" />
+          <NavigationProperty Name="tblUserSkills" Relationship="Self.FK_tblUserSkill_tblUserProfile" FromRole="tblUserProfile" ToRole="tblUserSkill" />
+          <NavigationProperty Name="tblSystemAnomalies" Relationship="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblUserProfile" FromRole="tblUserProfile" ToRole="tblSystemAnomaly" />
+          <NavigationProperty Name="tblTickets" Relationship="ALMAL_FreelancerDBModel.FK_tblTicket_tblUserProfile" FromRole="tblUserProfile" ToRole="tblTicket" />
+        </EntityType>
+        <EntityType Name="tblUserSkill">
+          <Key>
+            <PropertyRef Name="UserSkillID" />
+          </Key>
+          <Property Name="UserSkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="SkillConfigID" Type="Int32" />
+          <Property Name="Progress" Type="Int32" />
+          <NavigationProperty Name="tblSkillConfig" Relationship="Self.FK_tblUserSkill_tblSkillConfig" FromRole="tblUserSkill" ToRole="tblSkillConfig" />
+          <NavigationProperty Name="tblUserProfile" Relationship="Self.FK_tblUserSkill_tblUserProfile" FromRole="tblUserSkill" ToRole="tblUserProfile" />
+        </EntityType>
+        <Association Name="FK_tblAcademicBackground_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblAcademicBackground" Type="Self.tblAcademicBackground" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblAcademicBackground">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAdminProfile_tblRoleConfig">
+          <End Role="tblRoleConfig" Type="Self.tblRoleConfig" Multiplicity="0..1" />
+          <End Role="tblAdminProfile" Type="Self.tblAdminProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoleConfig">
+              <PropertyRef Name="RoleConfigID" />
+            </Principal>
+            <Dependent Role="tblAdminProfile">
+              <PropertyRef Name="RoleConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblMissionType">
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="MissionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblMobilityConfig">
+          <End Role="tblMobilityConfig" Type="Self.tblMobilityConfig" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMobilityConfig">
+              <PropertyRef Name="MobilityConfigID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="MobilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblSkillConfig">
+          <End Role="tblSkillConfig" Type="Self.tblSkillConfig" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkillConfig">
+              <PropertyRef Name="SkillConfigID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="SkillConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlert_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblAlert" Type="Self.tblAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblAlert">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblAvailabilityConfig">
+          <End Role="tblAvailabilityConfig" Type="Self.tblAvailabilityConfig" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAvailabilityConfig">
+              <PropertyRef Name="AvailabilityConfigID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="AvailabilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblExperience_tblSkillConfig">
+          <End Role="tblSkillConfig" Type="Self.tblSkillConfig" Multiplicity="0..1" />
+          <End Role="tblExperience" Type="Self.tblExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkillConfig">
+              <PropertyRef Name="SkillConfigID" />
+            </Principal>
+            <Dependent Role="tblExperience">
+              <PropertyRef Name="SkillConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblExperience_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblExperience" Type="Self.tblExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblExperience">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeaturedProfile_tblMedia">
+          <End Role="tblMedia" Type="Self.tblMedia" Multiplicity="0..1" />
+          <End Role="tblFeaturedProfile" Type="Self.tblFeaturedProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMedia">
+              <PropertyRef Name="MediaID" />
+            </Principal>
+            <Dependent Role="tblFeaturedProfile">
+              <PropertyRef Name="MediaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeaturedProfile_tblMissionType">
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="0..1" />
+          <End Role="tblFeaturedProfile" Type="Self.tblFeaturedProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Principal>
+            <Dependent Role="tblFeaturedProfile">
+              <PropertyRef Name="MissionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeaturedProfile_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblFeaturedProfile" Type="Self.tblFeaturedProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblFeaturedProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblLocationRegistry">
+          <End Role="tblLocationRegistry" Type="Self.tblLocationRegistry" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLocationRegistry">
+              <PropertyRef Name="LocationRegistryID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="LocationRegistryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMedia_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblMedia" Type="Self.tblMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblMedia">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMissionType_tblMobilityConfig">
+          <End Role="tblMobilityConfig" Type="Self.tblMobilityConfig" Multiplicity="0..1" />
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMobilityConfig">
+              <PropertyRef Name="MobilityConfigID" />
+            </Principal>
+            <Dependent Role="tblMissionType">
+              <PropertyRef Name="MobilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserMissionType_tblMissionType">
+          <End Role="tblMissionType" Type="Self.tblMissionType" Multiplicity="0..1" />
+          <End Role="tblUserMissionType" Type="Self.tblUserMissionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Principal>
+            <Dependent Role="tblUserMissionType">
+              <PropertyRef Name="MissionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblMobilityConfig">
+          <End Role="tblMobilityConfig" Type="Self.tblMobilityConfig" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMobilityConfig">
+              <PropertyRef Name="MobilityConfigID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="MobilityConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProfessionalDocument_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblProfessionalDocument" Type="Self.tblProfessionalDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblProfessionalDocument">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRecommendation_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblRecommendation" Type="Self.tblRecommendation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblRecommendation">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRemuneration_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblRemuneration" Type="Self.tblRemuneration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblRemuneration">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserSkill_tblSkillConfig">
+          <End Role="tblSkillConfig" Type="Self.tblSkillConfig" Multiplicity="0..1" />
+          <End Role="tblUserSkill" Type="Self.tblUserSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkillConfig">
+              <PropertyRef Name="SkillConfigID" />
+            </Principal>
+            <Dependent Role="tblUserSkill">
+              <PropertyRef Name="SkillConfigID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSocialConnection_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblSocialConnection" Type="Self.tblSocialConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblSocialConnection">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSocialConnection_tblUserProfile1">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblSocialConnection" Type="Self.tblSocialConnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblSocialConnection">
+              <PropertyRef Name="CoonectionUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblSubscription">
+          <End Role="tblSubscription" Type="Self.tblSubscription" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubscription">
+              <PropertyRef Name="SubscriptionID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="SubscriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserMissionType_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblUserMissionType" Type="Self.tblUserMissionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblUserMissionType">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserProfile_tblUserPhoto">
+          <End Role="tblUserPhoto" Type="Self.tblUserPhoto" Multiplicity="0..1" />
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserPhoto">
+              <PropertyRef Name="UserPhotoID" />
+            </Principal>
+            <Dependent Role="tblUserProfile">
+              <PropertyRef Name="UserPhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUserSkill_tblUserProfile">
+          <End Role="tblUserProfile" Type="Self.tblUserProfile" Multiplicity="0..1" />
+          <End Role="tblUserSkill" Type="Self.tblUserSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblUserSkill">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ALMAL_FreelancerDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tblAcademicBackgrounds" EntityType="Self.tblAcademicBackground" />
+          <EntitySet Name="tblAdminProfiles" EntityType="Self.tblAdminProfile" />
+          <EntitySet Name="tblAlerts" EntityType="Self.tblAlert" />
+          <EntitySet Name="tblAvailabilityConfigs" EntityType="Self.tblAvailabilityConfig" />
+          <EntitySet Name="tblExperiences" EntityType="Self.tblExperience" />
+          <EntitySet Name="tblFeaturedProfiles" EntityType="Self.tblFeaturedProfile" />
+          <EntitySet Name="tblLocationRegistries" EntityType="Self.tblLocationRegistry" />
+          <EntitySet Name="tblMedias" EntityType="Self.tblMedia" />
+          <EntitySet Name="tblMissionTypes" EntityType="Self.tblMissionType" />
+          <EntitySet Name="tblMobilityConfigs" EntityType="Self.tblMobilityConfig" />
+          <EntitySet Name="tblProfessionalDocuments" EntityType="Self.tblProfessionalDocument" />
+          <EntitySet Name="tblRecommendations" EntityType="Self.tblRecommendation" />
+          <EntitySet Name="tblRemunerations" EntityType="Self.tblRemuneration" />
+          <EntitySet Name="tblRoleConfigs" EntityType="Self.tblRoleConfig" />
+          <EntitySet Name="tblSkillConfigs" EntityType="Self.tblSkillConfig" />
+          <EntitySet Name="tblSocialConnections" EntityType="Self.tblSocialConnection" />
+          <EntitySet Name="tblSubscriptions" EntityType="Self.tblSubscription" />
+          <EntitySet Name="tblUserMissionTypes" EntityType="Self.tblUserMissionType" />
+          <EntitySet Name="tblUserPhotoes" EntityType="Self.tblUserPhoto" />
+          <EntitySet Name="tblUserProfiles" EntityType="Self.tblUserProfile" />
+          <EntitySet Name="tblUserSkills" EntityType="Self.tblUserSkill" />
+          <AssociationSet Name="FK_tblAcademicBackground_tblUserProfile" Association="Self.FK_tblAcademicBackground_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblAcademicBackground" EntitySet="tblAcademicBackgrounds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAdminProfile_tblRoleConfig" Association="Self.FK_tblAdminProfile_tblRoleConfig">
+            <End Role="tblRoleConfig" EntitySet="tblRoleConfigs" />
+            <End Role="tblAdminProfile" EntitySet="tblAdminProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblMissionType" Association="Self.FK_tblAlert_tblMissionType">
+            <End Role="tblMissionType" EntitySet="tblMissionTypes" />
+            <End Role="tblAlert" EntitySet="tblAlerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblMobilityConfig" Association="Self.FK_tblAlert_tblMobilityConfig">
+            <End Role="tblMobilityConfig" EntitySet="tblMobilityConfigs" />
+            <End Role="tblAlert" EntitySet="tblAlerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblSkillConfig" Association="Self.FK_tblAlert_tblSkillConfig">
+            <End Role="tblSkillConfig" EntitySet="tblSkillConfigs" />
+            <End Role="tblAlert" EntitySet="tblAlerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlert_tblUserProfile" Association="Self.FK_tblAlert_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblAlert" EntitySet="tblAlerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblAvailabilityConfig" Association="Self.FK_tblUserProfile_tblAvailabilityConfig">
+            <End Role="tblAvailabilityConfig" EntitySet="tblAvailabilityConfigs" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblExperience_tblSkillConfig" Association="Self.FK_tblExperience_tblSkillConfig">
+            <End Role="tblSkillConfig" EntitySet="tblSkillConfigs" />
+            <End Role="tblExperience" EntitySet="tblExperiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblExperience_tblUserProfile" Association="Self.FK_tblExperience_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblExperience" EntitySet="tblExperiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeaturedProfile_tblMedia" Association="Self.FK_tblFeaturedProfile_tblMedia">
+            <End Role="tblMedia" EntitySet="tblMedias" />
+            <End Role="tblFeaturedProfile" EntitySet="tblFeaturedProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeaturedProfile_tblMissionType" Association="Self.FK_tblFeaturedProfile_tblMissionType">
+            <End Role="tblMissionType" EntitySet="tblMissionTypes" />
+            <End Role="tblFeaturedProfile" EntitySet="tblFeaturedProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeaturedProfile_tblUserProfile" Association="Self.FK_tblFeaturedProfile_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblFeaturedProfile" EntitySet="tblFeaturedProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblLocationRegistry" Association="Self.FK_tblUserProfile_tblLocationRegistry">
+            <End Role="tblLocationRegistry" EntitySet="tblLocationRegistries" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMedia_tblUserProfile" Association="Self.FK_tblMedia_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblMedia" EntitySet="tblMedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMissionType_tblMobilityConfig" Association="Self.FK_tblMissionType_tblMobilityConfig">
+            <End Role="tblMobilityConfig" EntitySet="tblMobilityConfigs" />
+            <End Role="tblMissionType" EntitySet="tblMissionTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserMissionType_tblMissionType" Association="Self.FK_tblUserMissionType_tblMissionType">
+            <End Role="tblMissionType" EntitySet="tblMissionTypes" />
+            <End Role="tblUserMissionType" EntitySet="tblUserMissionTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblMobilityConfig" Association="Self.FK_tblUserProfile_tblMobilityConfig">
+            <End Role="tblMobilityConfig" EntitySet="tblMobilityConfigs" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProfessionalDocument_tblUserProfile" Association="Self.FK_tblProfessionalDocument_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblProfessionalDocument" EntitySet="tblProfessionalDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRecommendation_tblUserProfile" Association="Self.FK_tblRecommendation_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblRecommendation" EntitySet="tblRecommendations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRemuneration_tblUserProfile" Association="Self.FK_tblRemuneration_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblRemuneration" EntitySet="tblRemunerations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserSkill_tblSkillConfig" Association="Self.FK_tblUserSkill_tblSkillConfig">
+            <End Role="tblSkillConfig" EntitySet="tblSkillConfigs" />
+            <End Role="tblUserSkill" EntitySet="tblUserSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSocialConnection_tblUserProfile" Association="Self.FK_tblSocialConnection_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblSocialConnection" EntitySet="tblSocialConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSocialConnection_tblUserProfile1" Association="Self.FK_tblSocialConnection_tblUserProfile1">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblSocialConnection" EntitySet="tblSocialConnections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblSubscription" Association="Self.FK_tblUserProfile_tblSubscription">
+            <End Role="tblSubscription" EntitySet="tblSubscriptions" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserMissionType_tblUserProfile" Association="Self.FK_tblUserMissionType_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblUserMissionType" EntitySet="tblUserMissionTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserProfile_tblUserPhoto" Association="Self.FK_tblUserProfile_tblUserPhoto">
+            <End Role="tblUserPhoto" EntitySet="tblUserPhotoes" />
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUserSkill_tblUserProfile" Association="Self.FK_tblUserSkill_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblUserSkill" EntitySet="tblUserSkills" />
+          </AssociationSet>
+          <EntitySet Name="tblSystemAnomalies" EntityType="ALMAL_FreelancerDBModel.tblSystemAnomaly" />
+          <EntitySet Name="tblTickets" EntityType="ALMAL_FreelancerDBModel.tblTicket" />
+          <AssociationSet Name="FK_tblSystemAnomaly_tblAdminProfile" Association="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblAdminProfile">
+            <End Role="tblAdminProfile" EntitySet="tblAdminProfiles" />
+            <End Role="tblSystemAnomaly" EntitySet="tblSystemAnomalies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTicket_tblAdminProfile" Association="ALMAL_FreelancerDBModel.FK_tblTicket_tblAdminProfile">
+            <End Role="tblAdminProfile" EntitySet="tblAdminProfiles" />
+            <End Role="tblTicket" EntitySet="tblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSystemAnomaly_tblUserProfile" Association="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblSystemAnomaly" EntitySet="tblSystemAnomalies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTicket_tblUserProfile" Association="ALMAL_FreelancerDBModel.FK_tblTicket_tblUserProfile">
+            <End Role="tblUserProfile" EntitySet="tblUserProfiles" />
+            <End Role="tblTicket" EntitySet="tblTickets" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblSystemAnomaly">
+          <Key>
+            <PropertyRef Name="SystemAnomalyID" />
+          </Key>
+          <Property Name="SystemAnomalyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Analysis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Timeline" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SectionUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="IsRead" Type="Boolean" />
+          <NavigationProperty Name="tblAdminProfile" Relationship="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblAdminProfile" FromRole="tblSystemAnomaly" ToRole="tblAdminProfile" />
+          <NavigationProperty Name="tblUserProfile" Relationship="ALMAL_FreelancerDBModel.FK_tblSystemAnomaly_tblUserProfile" FromRole="tblSystemAnomaly" ToRole="tblUserProfile" />
+        </EntityType>
+        <EntityType Name="tblTicket">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserProfileID" Type="Int32" />
+          <Property Name="RepliedBy" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsRead" Type="Boolean" />
+          <NavigationProperty Name="tblAdminProfile" Relationship="ALMAL_FreelancerDBModel.FK_tblTicket_tblAdminProfile" FromRole="tblTicket" ToRole="tblAdminProfile" />
+          <NavigationProperty Name="tblUserProfile" Relationship="ALMAL_FreelancerDBModel.FK_tblTicket_tblUserProfile" FromRole="tblTicket" ToRole="tblUserProfile" />
+        </EntityType>
+        <Association Name="FK_tblSystemAnomaly_tblAdminProfile">
+          <End Type="ALMAL_FreelancerDBModel.tblAdminProfile" Role="tblAdminProfile" Multiplicity="0..1" />
+          <End Type="ALMAL_FreelancerDBModel.tblSystemAnomaly" Role="tblSystemAnomaly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminProfile">
+              <PropertyRef Name="AdminProfileID" />
+            </Principal>
+            <Dependent Role="tblSystemAnomaly">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTicket_tblAdminProfile">
+          <End Type="ALMAL_FreelancerDBModel.tblAdminProfile" Role="tblAdminProfile" Multiplicity="0..1" />
+          <End Type="ALMAL_FreelancerDBModel.tblTicket" Role="tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminProfile">
+              <PropertyRef Name="AdminProfileID" />
+            </Principal>
+            <Dependent Role="tblTicket">
+              <PropertyRef Name="RepliedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSystemAnomaly_tblUserProfile">
+          <End Type="ALMAL_FreelancerDBModel.tblUserProfile" Role="tblUserProfile" Multiplicity="0..1" />
+          <End Type="ALMAL_FreelancerDBModel.tblSystemAnomaly" Role="tblSystemAnomaly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblSystemAnomaly">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTicket_tblUserProfile">
+          <End Type="ALMAL_FreelancerDBModel.tblUserProfile" Role="tblUserProfile" Multiplicity="0..1" />
+          <End Type="ALMAL_FreelancerDBModel.tblTicket" Role="tblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="tblTicket">
+              <PropertyRef Name="UserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ALMAL_FreelancerDBModelStoreContainer" CdmEntityContainer="ALMAL_FreelancerDBEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAcademicBackgrounds">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblAcademicBackground">
+              <MappingFragment StoreEntitySet="tblAcademicBackground">
+                <ScalarProperty Name="AcademicBackgroundID" ColumnName="AcademicBackgroundID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="StopDate" ColumnName="StopDate" />
+                <ScalarProperty Name="IsGraduated" ColumnName="IsGraduated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAdminProfiles">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblAdminProfile">
+              <MappingFragment StoreEntitySet="tblAdminProfile">
+                <ScalarProperty Name="AdminProfileID" ColumnName="AdminProfileID" />
+                <ScalarProperty Name="RoleConfigID" ColumnName="RoleConfigID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAlerts">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblAlert">
+              <MappingFragment StoreEntitySet="tblAlert">
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="SkillConfigID" ColumnName="SkillConfigID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="MobilityConfigID" ColumnName="MobilityConfigID" />
+                <ScalarProperty Name="MissionTypeID" ColumnName="MissionTypeID" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAvailabilityConfigs">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblAvailabilityConfig">
+              <MappingFragment StoreEntitySet="tblAvailabilityConfig">
+                <ScalarProperty Name="AvailabilityConfigID" ColumnName="AvailabilityConfigID" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StopTime" ColumnName="StopTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblExperiences">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblExperience">
+              <MappingFragment StoreEntitySet="tblExperience">
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="SkillConfigID" ColumnName="SkillConfigID" />
+                <ScalarProperty Name="YearCount" ColumnName="YearCount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFeaturedProfiles">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblFeaturedProfile">
+              <MappingFragment StoreEntitySet="tblFeaturedProfile">
+                <ScalarProperty Name="FeaturedProfileID" ColumnName="FeaturedProfileID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="MissionTypeID" ColumnName="MissionTypeID" />
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLocationRegistries">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblLocationRegistry">
+              <MappingFragment StoreEntitySet="tblLocationRegistry">
+                <ScalarProperty Name="LocationRegistryID" ColumnName="LocationRegistryID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="Residence" ColumnName="Residence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMedias">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblMedia">
+              <MappingFragment StoreEntitySet="tblMedia">
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="ContentUrl" ColumnName="ContentUrl" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMissionTypes">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblMissionType">
+              <MappingFragment StoreEntitySet="tblMissionType">
+                <ScalarProperty Name="MissionTypeID" ColumnName="MissionTypeID" />
+                <ScalarProperty Name="MobilityConfigID" ColumnName="MobilityConfigID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="EstimatedStartTime" ColumnName="EstimatedStartTime" />
+                <ScalarProperty Name="EstimatedStopTime" ColumnName="EstimatedStopTime" />
+                <ScalarProperty Name="StartDuration" ColumnName="StartDuration" />
+                <ScalarProperty Name="StopDuration" ColumnName="StopDuration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMobilityConfigs">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblMobilityConfig">
+              <MappingFragment StoreEntitySet="tblMobilityConfig">
+                <ScalarProperty Name="MobilityConfigID" ColumnName="MobilityConfigID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProfessionalDocuments">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblProfessionalDocument">
+              <MappingFragment StoreEntitySet="tblProfessionalDocument">
+                <ScalarProperty Name="ProfessionalDocumentID" ColumnName="ProfessionalDocumentID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="FrontNicUrl" ColumnName="FrontNicUrl" />
+                <ScalarProperty Name="BackNicUrl" ColumnName="BackNicUrl" />
+                <ScalarProperty Name="FrontDriverLicenseUrl" ColumnName="FrontDriverLicenseUrl" />
+                <ScalarProperty Name="BackDriverLicenseUrl" ColumnName="BackDriverLicenseUrl" />
+                <ScalarProperty Name="PassportUrl" ColumnName="PassportUrl" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRecommendations">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblRecommendation">
+              <MappingFragment StoreEntitySet="tblRecommendation">
+                <ScalarProperty Name="RecommendationID" ColumnName="RecommendationID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="RecommendedBy" ColumnName="RecommendedBy" />
+                <ScalarProperty Name="RecommenderTitle" ColumnName="RecommenderTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRemunerations">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblRemuneration">
+              <MappingFragment StoreEntitySet="tblRemuneration">
+                <ScalarProperty Name="RemunerationID" ColumnName="RemunerationID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoleConfigs">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblRoleConfig">
+              <MappingFragment StoreEntitySet="tblRoleConfig">
+                <ScalarProperty Name="RoleConfigID" ColumnName="RoleConfigID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="CanCreate" ColumnName="CanCreate" />
+                <ScalarProperty Name="CanRead" ColumnName="CanRead" />
+                <ScalarProperty Name="CanUpdate" ColumnName="CanUpdate" />
+                <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSkillConfigs">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblSkillConfig">
+              <MappingFragment StoreEntitySet="tblSkillConfig">
+                <ScalarProperty Name="SkillConfigID" ColumnName="SkillConfigID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSocialConnections">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblSocialConnection">
+              <MappingFragment StoreEntitySet="tblSocialConnection">
+                <ScalarProperty Name="SocialConnectionID" ColumnName="SocialConnectionID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="CoonectionUserID" ColumnName="CoonectionUserID" />
+                <ScalarProperty Name="IsCollab" ColumnName="IsCollab" />
+                <ScalarProperty Name="IsFollow" ColumnName="IsFollow" />
+                <ScalarProperty Name="IsFollowing" ColumnName="IsFollowing" />
+                <ScalarProperty Name="IsRecommend" ColumnName="IsRecommend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubscriptions">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblSubscription">
+              <MappingFragment StoreEntitySet="tblSubscription">
+                <ScalarProperty Name="SubscriptionID" ColumnName="SubscriptionID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserMissionTypes">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblUserMissionType">
+              <MappingFragment StoreEntitySet="tblUserMissionType">
+                <ScalarProperty Name="UserMissionTypeID" ColumnName="UserMissionTypeID" />
+                <ScalarProperty Name="MissionTypeID" ColumnName="MissionTypeID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="StopDate" ColumnName="StopDate" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserPhotoes">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblUserPhoto">
+              <MappingFragment StoreEntitySet="tblUserPhoto">
+                <ScalarProperty Name="UserPhotoID" ColumnName="UserPhotoID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsProfilePhoto" ColumnName="IsProfilePhoto" />
+                <ScalarProperty Name="IsCoverPhoto" ColumnName="IsCoverPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserProfiles">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblUserProfile">
+              <MappingFragment StoreEntitySet="tblUserProfile">
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailVerificationCode" ColumnName="EmailVerificationCode" />
+                <ScalarProperty Name="IsEmailVerificationCode" ColumnName="IsEmailVerificationCode" />
+                <ScalarProperty Name="Biography" ColumnName="Biography" />
+                <ScalarProperty Name="UserPhotoID" ColumnName="UserPhotoID" />
+                <ScalarProperty Name="AccountUrl" ColumnName="AccountUrl" />
+                <ScalarProperty Name="MobilityConfigID" ColumnName="MobilityConfigID" />
+                <ScalarProperty Name="LocationRegistryID" ColumnName="LocationRegistryID" />
+                <ScalarProperty Name="AvailabilityConfigID" ColumnName="AvailabilityConfigID" />
+                <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+                <ScalarProperty Name="SubscriptionID" ColumnName="SubscriptionID" />
+                <ScalarProperty Name="SubscriptionExpiryDate" ColumnName="SubscriptionExpiryDate" />
+                <ScalarProperty Name="IsSubscriptionExpired" ColumnName="IsSubscriptionExpired" />
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserSkills">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblUserSkill">
+              <MappingFragment StoreEntitySet="tblUserSkill">
+                <ScalarProperty Name="UserSkillID" ColumnName="UserSkillID" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="SkillConfigID" ColumnName="SkillConfigID" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSystemAnomalies">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblSystemAnomaly">
+              <MappingFragment StoreEntitySet="tblSystemAnomaly">
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SectionUrl" ColumnName="SectionUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Timeline" ColumnName="Timeline" />
+                <ScalarProperty Name="Analysis" ColumnName="Analysis" />
+                <ScalarProperty Name="SystemAnomalyID" ColumnName="SystemAnomalyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTickets">
+            <EntityTypeMapping TypeName="ALMAL_FreelancerDBModel.tblTicket">
+              <MappingFragment StoreEntitySet="tblTicket">
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="ContentUrl" ColumnName="ContentUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="RepliedBy" ColumnName="RepliedBy" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

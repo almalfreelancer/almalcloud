@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>ALMAL for Freelancers</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <meta name="description" content="@Html.Partial("_description")">
+
+    <meta name="keywords" content="@Html.Partial("_keywords")">
+
+    <meta name="author" content="CivilSalt">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Favicons -->
+    <link href="~/Content/UserTemplate/images/Logo/ALMAL_Freelancer_Logo.jpg" rel="icon">
+    <link href="~/Content/UserTemplate/images/Logo/ALMAL_Freelancer_Logo.jpg" rel="apple-touch-icon">
+
+    <link rel="stylesheet" href="~/Content/UserTemplate/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/UserTemplate/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/UserTemplate/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/UserTemplate/css/owl.theme.default.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Content/UserTemplate/css/templatemo-style.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+
+            <span class="spinner-rotate"></span>
+
+        </div>
+    </section>
+
+
+    <!-- MENU -->
+    @Html.Partial("_UserHeader")
+
+
+    @RenderBody()
+
+
+    <!-- FOOTER -->
+    @Html.Partial("_LandingFooter")
+
+
+    <!-- SCRIPTS -->
+    <script src="~/Content/UserTemplate/js/jquery.js"></script>
+    <script src="~/Content/UserTemplate/js/bootstrap.min.js"></script>
+    <script src="~/Content/UserTemplate/js/owl.carousel.min.js"></script>
+    <script src="~/Content/UserTemplate/js/smoothscroll.js"></script>
+    <script src="~/Content/UserTemplate/js/custom.js"></script>
+
+</body>
+</html>
